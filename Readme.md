@@ -1,4 +1,4 @@
-#Call map Germany
+# Call map Germany
 
 Eine Deutschland-Karte der Funkamateure basierend auf der Rufzeichenliste der Bundesnetzagentur
 
@@ -9,7 +9,7 @@ Mit Hilfe einiger Python-Skripte habe ich die Daten der (öffentlichen) [Rufzeic
 
 <iframe width="500" height="600" scrolling="no" frameborder="no" src="https://fusiontables.google.com/embedviz?q=select+col8+from+1lGAOwlSUK7nCUsA0FlRRG9buB1QV51zNzJFUr7yj&amp;viz=MAP&amp;h=false&amp;lat=51.2482144526009&amp;lng=10.020759216308534&amp;t=1&amp;z=6&amp;l=col8&amp;y=2&amp;tmplt=2&amp;hml=TWO_COL_LAT_LNG"></iframe>
 
-###Statistik
+### Statistik
 
 Stand: Mai 2017.
 
@@ -22,7 +22,7 @@ Distinct call signs w/ address|	 67517|60870|6647|
 Records w/ geocode|		 70823|64141|6682|
 Distinct call signs w/ geocode|	 67159|60545|6614| 
 
-###Vorgehen
+### Vorgehen
 
 Bei der Rufzeichenliste der Bundesnetzagentur handelt es sich um eine PDF-Datei. Diese habe ich zunächst mit dem Linux-Tool ```ps2ascii``` in eine Text-Datei umgewandelt: 
 
