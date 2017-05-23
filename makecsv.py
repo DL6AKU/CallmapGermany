@@ -4,32 +4,54 @@
 import sys  
 import sqlite3
 import csv
+from sets import Set
 
 reload(sys)  
 sys.setdefaultencoding('utf8')
-import simplekml
+
 
 dbconn = sqlite3.connect('calls.db')
 dbcursor = dbconn.cursor()
 
-dbcursor.execute("SELECT * FROM Callsigns WHERE Lng IS NOT NULL AND Lat IS NOT  NULL")
+#there are overlap locations so we proceed differently than in earlier versions
+dbcursor.execute("SELECT Lng, Lat FROM Callsigns WHERE Geocode =1 GROUP BY Lat, Lng")
 res = dbcursor.fetchall()
 
-print str(len(res))+ " class call signs with geocode"
-
+counter = 0
 with open('calls.csv', 'w') as csvfile:
-    fieldnames = ['Id', 'Callsign', 'Class', 'Name', 'Street', 'Zip' , 'City', 'Lng', 'Lat', 'Address', 'NameCall', 'Marker']
+    fieldnames = ['Lng', 'Lat', 'Label', 'Marker']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
     writer.writeheader()
     
     for row in res:
-    	address = str(row[4]) + ", " + str(row[5]) + " " + str(row[6])
-    	namecall = str(row[1]) + " (" + str(row[3]) + ")"
-    	if row[2] == "A":
+    	lng = row[0]
+    	lat = row[1]
+    	dbcursor.execute("SELECT Id, Callsign, Class, Name, Street, Zip, City, Lng, Lat FROM Callsigns WHERE Lat="+str(lat)+" AND Lng= "+str(lng))
+    	res = dbcursor.fetchall()
+    	label = "<div class='googft-info-window'>"
+    	classes = Set([])
+    	
+    	for i in range(0,len(res)):
+    		counter = counter + 1
+    		current = res[i]
+    		classes.add(current[2])
+    		label = label + "<b>"+current[1]+" ("+current[3]+")</b><br>"
+    		label = label + current[4] + ", " + current[5] + " " + current[6]
+    		if i < len(res)-1:
+    			label = label + "<br><br>"
+    		
+    	if classes == Set(["A","E"]):
+    		marker = "small_blue"
+    	elif classes == Set(["A"]):
     		marker = "small_red"
-    	else:
+    	elif classes == Set(["E"]):
     		marker = "small_purple"
-    	writer.writerow({'Id': row[0], 'Callsign' : row[1], 'Class' : row[2], 'Name': row[3], 'Street':row[4], 'Zip':row[5], 'City':row[6], 'Lng':row[7],'Lat':row[8],'Address':address, 'NameCall':namecall, 'Marker':marker})
+    		
+    	label = label + "</div>"
+    
+    	writer.writerow({'Lng':lng,'Lat':lat, 'Label':label, 'Marker':marker})
+
+print counter
 
 dbconn.close()
