@@ -6,11 +6,9 @@ von Ulrich Thiel, VK2UTL/DK1UT
 
 Mit Hilfe einiger Python-Skripte habe ich die Daten der (öffentlichen) [Rufzeichenliste der Bundesnetzagentur](https://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Frequenzen/Amateurfunk/Rufzeichenliste/Rufzeichenliste_AFU.html) in eine SQL-Datenbank extrahiert und die Adressen mit Hilfe von GoogleMaps visualisiert. Das Resultat ist unten und **[hier](https://fusiontables.googleusercontent.com/embedviz?q=select+col8+from+1lGAOwlSUK7nCUsA0FlRRG9buB1QV51zNzJFUr7yj&viz=MAP&h=false&lat=51.2482144526009&lng=10.020759216308534&t=1&z=6&l=col8&y=2&tmplt=2&hml=TWO_COL_LAT_LNG)** im Vollbild zu sehen. Die Makierungen sind in zwei Farben nach Lizenzklasse aufgeteilt: rot für Klasse A und violett für Klasse E. Ich beschreibe unten kurz, wie ich vorgegangen bin, denn vielleicht kann das für andere Projekte auch nützlich sein.
 
-<iframe width="500" height="600" scrolling="no" frameborder="no" src="https://fusiontables.google.com/embedviz?q=select+col8+from+1lGAOwlSUK7nCUsA0FlRRG9buB1QV51zNzJFUr7yj&amp;viz=MAP&amp;h=false&amp;lat=51.2482144526009&amp;lng=10.020759216308534&amp;t=1&amp;z=6&amp;l=col8&amp;y=2&amp;tmplt=2&amp;hml=TWO_COL_LAT_LNG"></iframe>
+<iframe width="500" height="600" scrolling="no" frameborder="no" src="https://fusiontables.google.com/embedviz?q=select+col8+from+1lGAOwlSUK7nCUsA0FlRRG9buB1QV51zNzJFUr7yj&amp;viz=MAP&amp;h=false&amp;lat=51.2482144526009&amp;lng=10.020759216308534&amp;t=1&amp;z=6&amp;l=col8&amp;y=2&amp;tmplt=2&amp;hml=TWO_COL_LAT_LNG"></iframe><br>
 
 ### Statistik
-
-Stand: Mai 2017.
 
 |   | Total  | Class A  | Class E |
 |---|---|---|---|
@@ -20,6 +18,8 @@ Records w/ address|		 71338|64621|6717|
 Distinct call signs w/ address|	 67517|60870|6647|
 Records w/ geocode|		 70823|64141|6682|
 Distinct call signs w/ geocode|	 67159|60545|6614| 
+
+Stand: Mai 2017.
 
 ### Vorgehen
 
