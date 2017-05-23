@@ -1,9 +1,8 @@
-# Call map Germany
-
 Eine Deutschland-Karte der Funkamateure basierend auf der Rufzeichenliste der Bundesnetzagentur
 
 von Ulrich Thiel, VK2UTL/DK1UT
 
+---
 
 Mit Hilfe einiger Python-Skripte habe ich die Daten der (öffentlichen) [Rufzeichenliste der Bundesnetzagentur](https://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Frequenzen/Amateurfunk/Rufzeichenliste/Rufzeichenliste_AFU.html) in eine SQL-Datenbank extrahiert und die Adressen mit Hilfe von GoogleMaps visualisiert. Das Resultat ist unten und **[hier](https://fusiontables.googleusercontent.com/embedviz?q=select+col8+from+1lGAOwlSUK7nCUsA0FlRRG9buB1QV51zNzJFUr7yj&viz=MAP&h=false&lat=51.2482144526009&lng=10.020759216308534&t=1&z=6&l=col8&y=2&tmplt=2&hml=TWO_COL_LAT_LNG)** im Vollbild zu sehen. Die Makierungen sind in zwei Farben nach Lizenzklasse aufgeteilt: rot für Klasse A und violett für Klasse E. Ich beschreibe unten kurz, wie ich vorgegangen bin, denn vielleicht kann das für andere Projekte auch nützlich sein.
 
